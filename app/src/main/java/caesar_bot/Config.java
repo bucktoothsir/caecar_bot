@@ -1,4 +1,4 @@
-package my_caesar_bot;
+package caesar_bot;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;

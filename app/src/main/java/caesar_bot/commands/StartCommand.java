@@ -1,4 +1,4 @@
-package my_caesar_bot.commands;
+package caesar_bot.commands;
 
 import org.telegram.telegrambots.meta.api.objects.Update;
 

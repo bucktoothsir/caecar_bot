@@ -1,11 +1,11 @@
-package my_caesar_bot;
+package caesar_bot;
 
 import org.telegram.telegrambots.meta.TelegramBotsApi;
 
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 import org.telegram.telegrambots.updatesreceivers.DefaultBotSession;
 
-import my_caesar_bot.Config;
+import caesar_bot.Config;
 
 public class App {
     public String getGreeting(){
