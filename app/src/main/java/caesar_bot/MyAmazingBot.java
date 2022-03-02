@@ -3,11 +3,8 @@ package caesar_bot;
 //import my_caesar_bot.Config;
 //import my_caesar_bot.commands;
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.Map;
 
+import java.util.Map;
 
 import caesar_bot.commands.CommandFactory;
 import java.io.IOException;
@@ -24,12 +21,15 @@ public class MyAmazingBot extends TelegramLongPollingBot {
     private CommandFactory commandFactory;
     private final String COMMAND_PREFIX = "/";
     private ApiClient apiClient;
+    private SqlClient sqlClient = new SqlClient();
 
     public MyAmazingBot(){
         try{
             config = new Config("config.properties");
             commandFactory = new CommandFactory();
             apiClient = new ApiClient();
+            sqlClient.read();
+            sqlClient.write();
         }
         catch (Exception e) {
             System.out.println("Exception: " + e);
@@ -88,7 +88,6 @@ public class MyAmazingBot extends TelegramLongPollingBot {
             } catch (TelegramApiException e) {
                 e.printStackTrace();
             }
-
         } catch (NumberFormatException e) {
             System.out.println("key should be a valid number");
         } catch (IOException | InterruptedException e) {
@@ -108,5 +107,13 @@ public class MyAmazingBot extends TelegramLongPollingBot {
     public String getBotToken() {
         // Return bot token from BotFather
         return config.token;
+    }
+
+    public void read() {
+        sqlClient.read();
+    }
+
+    public void write() {
+        sqlClient.write();
     }
 }

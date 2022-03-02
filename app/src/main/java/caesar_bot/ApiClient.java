@@ -15,14 +15,14 @@ import org.apache.commons.lang3.StringUtils;
 
 
 public class ApiClient {
-    private static String api = "https://5tg3bs55i7.execute-api.us-west-2.amazonaws.com/dev/cipher/caesar/encode";
+    private static String API = "https://5tg3bs55i7.execute-api.us-west-2.amazonaws.com/dev/cipher/caesar/encode";
     public static Map<String, String> post(ImmutableMap<String, Object> values) throws IOException, InterruptedException {
         var objectMapper = new ObjectMapper();
         String requestBody = objectMapper
             .writeValueAsString(values);
         HttpClient client = HttpClient.newHttpClient();
         HttpRequest request = HttpRequest.newBuilder()
-            .uri(URI.create(api))
+            .uri(URI.create(API))
             .POST(HttpRequest.BodyPublishers.ofString(requestBody))
             .build();
 
